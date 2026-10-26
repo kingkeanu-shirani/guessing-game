@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BIOMON // ŌURA-LINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="scan"></div><div class="vignette"></div>
+
+<header class="top">
+  <div class="brand"><span class="logo">▞▚</span><div><h1 class="glitch" data-t="BIOMON">BIOMON</h1><small>ŌURA-LINK // NEURAL VITALS MONITOR v2.077</small></div></div>
+  <div class="subject">
+    <span>SUBJECT <b id="sid">--------</b></span>
+    <span>AGE <b id="sage">--</b></span>
+    <span>LINK <b id="slink" class="warn">INIT</b></span>
+  </div>
+  <div class="ctrl">
+    <div class="range" id="range">
+      <button data-d="7">7D</button><button data-d="14" class="on">14D</button><button data-d="30">30D</button><button data-d="90">90D</button>
+    </div>
+    <button id="refresh" class="btn">⟳ SYNC</button>
+    <a id="linkbtn" class="btn hide" href="/login">⚡ JACK IN</a>
+    <div class="clock" id="clock">00:00:00</div>
+  </div>
+</header>
+
+<div id="banner" class="banner hide"></div>
+<nav class="days" id="days"></nav>
+
+<main class="grid">
+  <section class="panel scores">
+    <h2><i></i>VITAL INDEX <em id="selday">--</em></h2>
+    <div class="gauges" id="gauges"></div>
+    <div class="status" id="status"></div>
+  </section>
+
+  <section class="panel cardio">
+    <h2><i></i>CARDIAC TRACE <em>LIVE SIM @ LAST BPM</em></h2>
+    <div class="ecgwrap"><canvas id="ecg"></canvas><div class="bpm"><b id="bpm">--</b><small>BPM</small></div></div>
+    <div class="hrstats" id="hrstats"></div>
+    <svg id="hr48" class="chart" viewBox="0 0 600 120" preserveAspectRatio="none"></svg>
+    <div class="axis"><span>-48H</span><span>-24H</span><span>NOW</span></div>
+  </section>
+
+  <section class="panel sleep">
+    <h2><i></i>SLEEP ARCHITECTURE <em id="sleepwin">--</em></h2>
+    <div id="sleepbar" class="stack"></div>
+    <div class="legend"><span class="c-deep">DEEP</span><span class="c-rem">REM</span><span class="c-light">LIGHT</span><span class="c-awake">AWAKE</span></div>
+    <div class="kv" id="sleepkv"></div>
+    <svg id="sleephist" class="chart" viewBox="0 0 600 130" preserveAspectRatio="none"></svg>
+  </section>
+
+  <section class="panel vitals">
+    <h2><i></i>BIOSIGNS <em>SELECTED DAY</em></h2>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <section class="panel trend">
+    <h2><i></i>HRV // RESTING HR <em>TREND</em></h2>
+    <svg id="hrvchart" class="chart tall" viewBox="0 0 600 150" preserveAspectRatio="none"></svg>
+    <div class="legend"><span class="c-cyan">HRV ms</span><span class="c-red">LOWEST HR bpm</span></div>
+  </section>
+
+  <section class="panel trend">
+    <h2><i></i>SCORE HISTORY <em>READY / SLEEP / ACT</em></h2>
+    <svg id="scorechart" class="chart tall" viewBox="0 0 600 150" preserveAspectRatio="none"></svg>
+    <div class="legend"><span class="c-yellow">READINESS</span><span class="c-cyan">SLEEP</span><span class="c-pink">ACTIVITY</span></div>
+  </section>
+
+  <section class="panel trend">
+    <h2><i></i>THERMAL DRIFT <em>°C vs BASELINE</em></h2>
+    <svg id="tempchart" class="chart" viewBox="0 0 600 120" preserveAspectRatio="none"></svg>
+    <h2 class="sub"><i></i>LOCOMOTION <em>STEPS / DAY</em></h2>
+    <svg id="stepchart" class="chart" viewBox="0 0 600 120" preserveAspectRatio="none"></svg>
+  </section>
+
+  <section class="panel log">
+    <h2><i></i>SYSTEM LOG</h2>
+    <ul id="log"></ul>
+  </section>
+
+  <section class="panel log">
+    <h2><i></i>COMBAT / WORKOUT LOG</h2>
+    <ul id="workouts" class="wk"></ul>
+  </section>
+</main>
+
+<footer>DATA SOURCE: OURA CLOUD API v2 ⇄ IPHONE OURA APP ⇄ RING &nbsp;//&nbsp; BINDING 127.0.0.1 ONLY &nbsp;//&nbsp; <a href="/logout">UNLINK</a></footer>
+<script src="app.js"></script>
+</body>
+</html>
